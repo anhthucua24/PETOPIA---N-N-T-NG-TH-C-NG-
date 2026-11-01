@@ -1,0 +1,291 @@
+/* [UI] components.css – PETOPIA: nav, nút, thẻ thú cưng, form, modal, chip, badge, toast, footer */
+
+/* ===== [CHỨC NĂNG] Thanh điều hướng ===== */
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,244,238,.9);
+  backdrop-filter:saturate(1.4) blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(1rem,4vw,3.5rem);height:72px;
+  transition:box-shadow var(--t);
+}
+.nav.scrolled{box-shadow:0 6px 20px -14px rgba(31,26,23,.3)}
+.nav-brand{
+  font-family:var(--serif);font-size:1.6rem;font-weight:700;
+  letter-spacing:-.5px;color:var(--dark);
+  display:flex;align-items:center;gap:8px;
+}
+.nav-brand .dot{
+  width:11px;height:11px;border-radius:50% 50% 50% 0;
+  background:var(--orange);display:inline-block;transform:rotate(-45deg);
+}
+.nav-links{display:flex;gap:.25rem;list-style:none;align-items:center}
+.nav-links a{
+  position:relative;padding:8px 14px;
+  font-size:.9rem;font-weight:500;color:var(--mid);
+  transition:color var(--t);
+}
+.nav-links a::after{
+  content:'';position:absolute;left:14px;right:14px;bottom:2px;height:1.5px;
+  background:var(--orange);transform:scaleX(0);transform-origin:left;
+  transition:transform var(--t);
+}
+.nav-links a:hover{color:var(--dark)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--dark);font-weight:600}
+.nav-links .nav-admin{
+  margin-left:.5rem;background:var(--dark);color:var(--cream);
+  border-radius:999px;padding:9px 18px;font-weight:600;
+}
+.nav-links .nav-admin::after{display:none}
+.nav-links .nav-admin:hover{background:var(--orange);color:#fff}
+.nav-toggle{
+  display:none;width:42px;height:42px;border:1px solid var(--border);
+  border-radius:12px;background:var(--paper);cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.nav-toggle span{width:18px;height:1.5px;background:var(--dark);transition:var(--t)}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+
+/* ===== [CHỨC NĂNG] Nút bấm ===== */
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 24px;border-radius:999px;
+  font-family:inherit;font-size:.9rem;font-weight:600;
+  border:1.5px solid transparent;cursor:pointer;
+  transition:all var(--t);white-space:nowrap;line-height:1;
+}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--orange);color:#fff;border-color:var(--orange)}
+.btn-primary:hover{background:#8F5340;border-color:#8F5340;box-shadow:0 10px 24px -10px rgba(168,100,74,.45)}
+.btn-dark{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+.btn-dark:hover{background:#3B3632}
+.btn-outline{background:transparent;color:var(--dark);border-color:var(--dark)}
+.btn-outline:hover{background:var(--dark);color:var(--cream)}
+.btn-green{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-green:hover{background:var(--green-2)}
+.btn-ghost{background:var(--paper);color:var(--dark);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--dark)}
+.btn-sm{padding:9px 16px;font-size:.82rem}
+.btn-red{background:var(--red);color:#fff;border-color:var(--red)}
+.btn-red:hover{background:#863A30}
+.btn-yellow{background:var(--yellow);color:var(--dark);border-color:var(--yellow)}
+.btn-success{background:var(--green);color:#fff;border-color:var(--green)}
+.btn-success:hover{background:var(--green-2)}
+
+
+/* ===== [CHỨC NĂNG] Thẻ thú cưng ===== */
+/* ── PET GRID ── */
+.pet-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:1.5rem;background:none;border:none;
+}
+.pet-item{
+  background:var(--paper);border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--border);cursor:pointer;
+  transition:transform var(--t),box-shadow var(--t),border-color var(--t);
+}
+.pet-item:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:transparent}
+.pet-item:hover .pet-img{transform:scale(1.06)}
+.pet-img-wrap{overflow:hidden;position:relative;aspect-ratio:4/3.4;height:auto;margin:8px;border-radius:calc(var(--r) - 6px)}
+.pet-img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.pet-kind{
+  position:absolute;top:10px;left:10px;
+  background:rgba(255,253,249,.95);color:var(--dark);
+  font-size:.72rem;font-weight:600;
+  padding:5px 11px;border-radius:999px;border:none;
+}
+.pet-info{padding:8px 18px 20px}
+.pet-name{font-family:var(--serif);font-size:1.35rem;font-weight:600;letter-spacing:-.3px;margin-bottom:2px}
+.pet-breed{font-size:.85rem;color:var(--warm-gray);margin-bottom:14px}
+.pet-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tag{
+  font-size:.75rem;font-weight:500;padding:4px 11px;border-radius:999px;
+  border:1px solid var(--border);color:var(--mid);background:var(--cream);
+}
+.tag.orange{border-color:transparent;color:#8F5340;background:var(--orange-soft)}
+.tag.green{border-color:transparent;color:var(--green);background:var(--green-light)}
+
+
+/* ===== [CHỨC NĂNG] Bộ lọc & ô nhập ===== */
+/* ── FILTER BAR ── */
+.filter-bar{
+  background:var(--paper);border:1px solid var(--border);border-radius:var(--r);
+  padding:1.25rem 1.5rem;margin-bottom:2.5rem;box-shadow:var(--sh);
+  display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;
+}
+.fg{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}
+.fg label{font-size:.78rem;font-weight:600;color:var(--mid)}
+.fg input,.fg select,.fg2 input,.fg2 select,.fg2 textarea,.cmt-form input{
+  padding:11px 14px;border:1px solid var(--border);border-radius:var(--r2);
+  font-family:inherit;font-size:.92rem;color:var(--dark);
+  background:var(--cream);outline:none;transition:var(--t);
+}
+.fg input:focus,.fg select:focus,.fg2 input:focus,.fg2 select:focus,.fg2 textarea:focus,.cmt-form input:focus{
+  border-color:var(--orange);background:#fff;box-shadow:0 0 0 4px var(--orange-soft);
+}
+
+
+/* ===== [CHỨC NĂNG] Modal ===== */
+/* ── MODAL ── */
+.overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(31,26,23,.45);backdrop-filter:blur(3px);
+  align-items:center;justify-content:center;padding:1.5rem;
+}
+.overlay.open{display:flex}
+.modal{
+  background:var(--paper);border-radius:calc(var(--r) + 4px);
+  max-width:560px;width:100%;max-height:90vh;overflow-y:auto;
+  border:none;box-shadow:0 40px 80px -20px rgba(31,26,23,.45);
+  animation:mIn .35s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes mIn{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.6rem;border-bottom:1px solid var(--border)}
+.modal-hd-title{font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.modal-x{
+  width:36px;height:36px;border:1px solid var(--border);border-radius:50%;
+  background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--t);
+}
+.modal-x:hover{background:var(--dark);border-color:var(--dark)}
+.modal-x:hover svg{stroke:#fff}
+.modal-x svg{width:13px;height:13px;stroke:var(--dark);stroke-width:2.5;fill:none}
+.modal-bd{padding:1.6rem}
+.modal-bd img{width:100%;border-radius:var(--r2);margin-bottom:1.25rem;max-height:280px;object-fit:cover}
+.modal-ft{padding:1rem 1.6rem;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
+
+
+/* ===== [CHỨC NĂNG] Form ===== */
+/* ── FORMS ── */
+.fg2{margin-bottom:1.1rem}
+.fg2 label{display:block;font-size:.82rem;font-weight:600;color:var(--mid);margin-bottom:7px}
+.fg2 input,.fg2 select,.fg2 textarea{width:100%;resize:vertical}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.req{color:var(--orange);margin-left:2px}
+
+
+/* ===== [CHỨC NĂNG] Toast ===== */
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;
+  display:flex;align-items:center;gap:10px;
+  background:var(--dark);color:var(--cream);
+  padding:13px 20px;border-radius:999px;font-size:.88rem;font-weight:500;
+  border-left:none;box-shadow:0 20px 40px -12px rgba(31,26,23,.5);
+  animation:tIn .35s cubic-bezier(.2,.7,.2,1),tOut .3s ease 2.7s forwards;
+}
+.toast::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--orange)}
+.toast.success::before{background:#9FC2AC}
+.toast.error::before{background:#E3A194}
+.toast svg{width:14px;height:14px}
+@keyframes tIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes tOut{to{opacity:0;transform:translateY(16px)}}
+
+
+/* ===== [CHỨC NĂNG] Footer ===== */
+/* ── FOOTER ── */
+.footer{
+  background:var(--dark);color:rgba(250,246,239,.55);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:2.5rem clamp(1.25rem,5vw,4.5rem);font-size:.86rem;flex-wrap:wrap;gap:1rem;
+  margin-top:3rem;
+}
+.footer-brand{font-family:var(--serif);color:var(--cream);font-weight:600;font-size:1.4rem}
+
+
+/* ===== [CHỨC NĂNG] Tài khoản trên nav ===== */
+/* =====================================================
+   v2 – Tài khoản, nhu cầu, cộng đồng, duyệt bài
+   ===================================================== */
+/* Nav user */
+.nav-user{display:flex;align-items:center;gap:.4rem;margin-left:.5rem}
+.nav-user .nu-name{display:flex;align-items:center;gap:8px;font-size:.86rem;font-weight:600;color:var(--dark);padding:6px 12px 6px 6px;border-radius:999px;background:var(--paper);border:1px solid var(--border)}
+.nav-user .nu-av{width:28px;height:28px;border-radius:50%;background:var(--orange-soft);color:#8F5340;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+.nav-user .nu-role{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--green);background:var(--green-light);padding:2px 7px;border-radius:999px}
+.nav-links .nav-ghost{border:1px solid var(--border);border-radius:999px;padding:8px 16px;background:var(--paper)}
+.nav-links .nav-ghost::after{display:none}
+.nav-links button.nav-link-btn{background:none;border:none;cursor:pointer;font:inherit;font-size:.86rem;color:var(--warm-gray);padding:8px 10px}
+.nav-links button.nav-link-btn:hover{color:var(--red)}
+
+
+/* ===== [CHỨC NĂNG] Chip nhu cầu ===== */
+/* Need chips (lọc theo nhu cầu) */
+.need-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.85rem;margin-bottom:2rem}
+.need-chip{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;padding:1.1rem 1.15rem;border-radius:var(--r);border:1.5px solid var(--border);background:var(--paper);cursor:pointer;font-family:inherit;transition:var(--t)}
+.need-chip .ni{font-size:1.5rem;line-height:1}
+.need-chip b{font-size:.92rem;font-weight:600;color:var(--dark)}
+.need-chip small{font-size:.76rem;color:var(--warm-gray);line-height:1.4}
+.need-chip:hover{border-color:var(--green-2);transform:translateY(-2px);box-shadow:var(--sh)}
+.need-chip.on{border-color:var(--green);background:var(--green-light)}
+.need-chip.on b{color:var(--green)}
+.need-chips-sm{display:flex;flex-wrap:wrap;gap:.75rem;margin:-1rem 0 1.75rem}
+.need-chips-sm .need-chip{flex-direction:row;align-items:center;padding:12px 22px;border-radius:999px;gap:10px}
+.need-chips-sm .need-chip .ni{font-size:1.4rem}
+.need-chips-sm .need-chip b{font-size:.95rem}
+.need-chips-sm .need-chip small{display:none}
+
+
+/* ===== [CHỨC NĂNG] Badge trạng thái & đặc điểm thú cưng ===== */
+.pet-status{position:absolute;top:10px;right:10px;font-size:.7rem;font-weight:600;padding:5px 10px;border-radius:999px;background:#F3EBDA;color:#7D6232}
+.trait-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin:12px 0 14px;font-size:.84rem;color:var(--mid)}
+.trait-list span{display:flex;align-items:center;gap:6px}
+.trait-list .yes::before{content:'✓';color:var(--green);font-weight:700}
+.trait-list .no::before{content:'✕';color:var(--red);font-weight:700}
+
+
+/* ===== [CHỨC NĂNG] Tab chuyên mục ===== */
+/* Category tabs */
+.cat-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.cat-tab{padding:8px 16px;border-radius:999px;border:1px solid var(--border);background:var(--paper);font:inherit;font-size:.84rem;font-weight:500;color:var(--mid);cursor:pointer;transition:var(--t)}
+.cat-tab:hover{border-color:var(--dark);color:var(--dark)}
+.cat-tab.on{background:var(--dark);border-color:var(--dark);color:var(--cream)}
+.cat-badge{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--orange-soft);color:#8F5340;margin-left:auto}
+
+
+/* ===== [CHỨC NĂNG] Thông báo & danh sách nhỏ ===== */
+/* My posts / status banner */
+.notice{padding:12px 16px;border-radius:var(--r2);font-size:.88rem;margin-bottom:1rem}
+.notice.wait{background:#F3EBDA;color:#7D6232}
+.notice.no{background:#F4E2DE;color:var(--red)}
+.notice.ok{background:var(--green-light);color:var(--green)}
+.mini-list{display:flex;flex-direction:column;gap:.6rem}
+.mini-item{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--border);border-radius:var(--r2);padding:10px 14px}
+.mini-item img{width:48px;height:48px;border-radius:10px;object-fit:cover}
+.mini-item .mi-body{flex:1;min-width:0}
+.mini-item .mi-title{font-weight:600;font-size:.9rem}
+.mini-item .mi-sub{font-size:.78rem;color:var(--warm-gray)}
+
+
+/* ===== [CHỨC NĂNG] Checkbox / lưới form ===== */
+/* Checkboxes / radio groups */
+.checks{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:4px}
+.checks label{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:500;color:var(--mid);margin:0;cursor:pointer}
+.checks input{width:auto;accent-color:var(--green)}
+.f3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+
+/* ===== [CHỨC NĂNG] Upload ảnh ===== */
+/* Upload */
+.upload-box{display:flex;gap:14px;align-items:center;border:1.5px dashed var(--border);border-radius:var(--r2);padding:12px;background:var(--cream);cursor:pointer;transition:var(--t)}
+.upload-box:hover{border-color:var(--green)}
+.upload-box img{width:72px;height:72px;border-radius:10px;object-fit:cover;background:var(--sand);margin:0}
+.upload-box span{font-size:.84rem;color:var(--warm-gray)}
+.upload-box input{display:none}
+
+
+/* ===== [CHỨC NĂNG] Icon nét mảnh (js/ui/icons.js) ===== */
+.gi{width:1em;height:1em;display:inline-block;vertical-align:-.15em;overflow:visible}
+.ni .gi{width:1.4em;height:1.4em}
+.like-btn.on .gi path{fill:currentColor}
+/* Màu viền icon theo tông chung: đất nung (clay); trên nền xanh đậm dùng clay sáng; trong nút giữ màu chữ */
+.gi{color:var(--orange)}
+.feat-icon .gi{color:var(--orange-2)}
+.need-chip.on .gi{color:var(--green)}
+.btn .gi,.modal-x .gi,.toast .gi,.like-btn .gi{color:inherit}

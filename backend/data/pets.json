@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pet_001",
+    "name": "Mochi",
+    "species": "dog",
+    "breed": "Poodle",
+    "age": 2,
+    "gender": "Đực",
+    "photo": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80",
+    "description": "Mochi là chú chó Poodle cực kỳ thông minh và vui vẻ. Bé rất thích chơi đùa và dễ huấn luyện.",
+    "status": "available",
+    "created_at": "2026-10-01"
+  },
+  {
+    "id": "pet_002",
+    "name": "Luna",
+    "species": "cat",
+    "breed": "Mèo Anh Lông Ngắn",
+    "age": 1,
+    "gender": "Cái",
+    "photo": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&q=80",
+    "description": "Luna là cô mèo hiền lành, thích được vuốt ve. Bé hòa đồng tốt với trẻ em và thú nuôi khác.",
+    "status": "available",
+    "created_at": "2026-10-05"
+  },
+  {
+    "id": "pet_003",
+    "name": "Buddy",
+    "species": "dog",
+    "breed": "Golden Retriever",
+    "age": 3,
+    "gender": "Đực",
+    "photo": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80",
+    "description": "Buddy rất thân thiện và yêu trẻ em. Bé đã được tiêm phòng đầy đủ và rất khỏe mạnh.",
+    "status": "available",
+    "created_at": "2026-10-08"
+  },
+  {
+    "id": "pet_004",
+    "name": "Coco",
+    "species": "cat",
+    "breed": "Mèo Ba Tư",
+    "age": 2,
+    "gender": "Cái",
+    "photo": "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&q=80",
+    "description": "Coco là nàng mèo Ba Tư sang trọng, điềm tĩnh và yêu thích sự yên tĩnh.",
+    "status": "available",
+    "created_at": "2026-10-10"
+  },
+  {
+    "id": "pet_005",
+    "name": "Rex",
+    "species": "dog",
+    "breed": "Husky",
+    "age": 4,
+    "gender": "Đực",
+    "photo": "https://images.unsplash.com/photo-1605568427561-40dd23c2acea?w=400&q=80",
+    "description": "Rex là chú chó Husky năng động, thích vận động. Bé cần không gian rộng rãi để chạy nhảy.",
+    "status": "available",
+    "created_at": "2026-10-12"
+  },
+  {
+    "id": "pet_006",
+    "name": "Kitty",
+    "species": "cat",
+    "breed": "Mèo Ragdoll",
+    "age": 1,
+    "gender": "Cái",
+    "photo": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?w=400&q=80",
+    "description": "Kitty là cô mèo Ragdoll mềm mại như bông. Bé rất thích nằm trong lòng chủ nhân.",
+    "status": "available",
+    "created_at": "2026-10-15"
+  }
+]

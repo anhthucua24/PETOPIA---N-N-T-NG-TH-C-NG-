@@ -1,0 +1,34 @@
+[
+  {
+    "postId": "post_001",
+    "author": "Nguyễn Lan Anh",
+    "title": "Chia sẻ hành trình nhận nuôi bé Milo 🐶",
+    "content": "Tháng trước mình nhận nuôi bé Milo từ PETOPIA và cuộc sống thay đổi hoàn toàn! Bé rất ngoan và thông minh. Cảm ơn đội ngũ PETOPIA đã hỗ trợ mình trong suốt quá trình.",
+    "image": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=500&q=80",
+    "timestamp": "2026-10-28T10:30:00",
+    "comments": [
+      { "commentId": "c001", "author": "Trần Minh Đức", "text": "Bé dễ thương quá! Chúc mừng bạn nhé 🎉", "timestamp": "2026-10-28T11:00:00" },
+      { "commentId": "c002", "author": "Phạm Thu Hà", "text": "Milo trông khoẻ và vui lắm, bạn chăm tốt quá!", "timestamp": "2026-10-28T12:15:00" }
+    ]
+  },
+  {
+    "postId": "post_002",
+    "author": "Lê Hoàng Nam",
+    "title": "Tips chăm sóc mèo con mới về nhà 🐱",
+    "content": "Khi mới đón bé mèo về nhà, bạn cần chú ý: 1) Tạo không gian riêng tư cho bé. 2) Cho bé ăn đúng giờ. 3) Đừng bế bé quá nhiều những ngày đầu. 4) Đảm bảo môi trường an toàn. Chúc các bạn và các bé có khoảng thời gian tuyệt vời!",
+    "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=500&q=80",
+    "timestamp": "2026-10-29T14:00:00",
+    "comments": [
+      { "commentId": "c003", "author": "Vũ Thị Mai", "text": "Cảm ơn bạn đã chia sẻ, rất hữu ích!", "timestamp": "2026-10-29T15:30:00" }
+    ]
+  },
+  {
+    "postId": "post_003",
+    "author": "Đặng Thị Thu",
+    "title": "Chiến dịch cứu hộ chó mèo tháng 11 🐾",
+    "content": "PETOPIA đang phối hợp với các trạm cứu hộ địa phương để giải cứu hơn 50 bé chó mèo bị bỏ rơi. Hãy chia sẻ bài viết này để giúp các bé tìm được mái ấm mới!",
+    "image": "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=500&q=80",
+    "timestamp": "2026-10-30T09:00:00",
+    "comments": []
+  }
+]

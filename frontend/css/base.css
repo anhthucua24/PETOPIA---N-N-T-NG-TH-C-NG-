@@ -1,0 +1,77 @@
+/* [UI] base.css – PETOPIA: biến CSS, font, reset, typography, tiện ích bố cục chung */
+/* Thứ tự nạp: base.css -> components.css -> pages.css (giữ đúng cascade của style.css cũ) */
+
+/* ===== [CHỨC NĂNG] Font, biến màu & reset ===== */
+/* ============================================
+   PETOPIA – Refined Calm Redesign
+   Fonts: Playfair Display (display) + Be Vietnam Pro (text)
+   Palette: Stone · Ink · Muted Clay · Sage
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --orange:     #A8644A;   /* muted clay – AA on light bg */
+  --orange-2:   #C98B70;
+  --orange-soft:#F3E6DE;
+  --green:      #48604F;   /* deep sage */
+  --green-2:    #5F7A68;
+  --green-light:#E6ECE6;
+  --cream:      #F7F4EE;
+  --sand:       #EEE8DE;
+  --paper:      #FFFFFF;
+  --warm-gray:  #7A7067;
+  --dark:       #26221F;
+  --mid:        #4F4943;
+  --border:     #E4DED4;
+  --white:      #FFFFFF;
+  --red:        #A2463A;
+  --yellow:     #C9A45C;
+  --r:          16px;
+  --r2:         10px;
+  --sh:         0 1px 2px rgba(38,34,31,.04), 0 6px 20px -10px rgba(38,34,31,.10);
+  --sh-lg:      0 2px 4px rgba(38,34,31,.04), 0 22px 44px -22px rgba(38,34,31,.20);
+  --t:          .25s cubic-bezier(.2,.7,.2,1);
+  --serif:      'Playfair Display', Georgia, serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Be Vietnam Pro',system-ui,sans-serif;
+  background:var(--cream);color:var(--dark);
+  min-height:100vh;line-height:1.65;font-size:16px;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+:focus-visible{outline:2.5px solid var(--green);outline-offset:3px;border-radius:6px}
+::selection{background:var(--green);color:#fff}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--warm-gray)}
+
+
+/* ===== [CHỨC NĂNG] Khung section & tiêu đề ===== */
+/* ── SECTION BASICS ── */
+.sec{padding:clamp(3.5rem,7vw,6rem) clamp(1.25rem,5vw,4.5rem);max-width:1400px;margin:0 auto}
+.sec-label{
+  font-size:.78rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--orange);
+  margin-bottom:.9rem;display:flex;align-items:center;gap:10px;
+}
+.sec-label::before{content:'';width:24px;height:1.5px;background:currentColor}
+.sec-title{
+  font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.8rem);
+  font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:.6rem;
+}
+.sec-sub{color:var(--warm-gray);font-size:1rem;margin-bottom:2.75rem;max-width:540px}
+
+
+/* ===== [CHỨC NĂNG] Trạng thái rỗng ===== */
+/* ── EMPTY ── */
+.empty{text-align:center;padding:4rem 1rem;color:var(--warm-gray);grid-column:1/-1}
+.empty svg{width:56px;height:56px;fill:var(--border);margin:0 auto 1rem;display:block}
+
